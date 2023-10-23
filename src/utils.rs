@@ -1,3 +1,6 @@
+use std::cmp::Ordering;
+pub type Matrix<T> = Vec<Vec<T>>;
+
 pub fn sigmoid(x: f64) -> f64 {
     1.0 / (1.0 + (-x).exp())
 }
@@ -34,4 +37,26 @@ pub fn error(expected_outs: &Vec<f64>, actual_outs: &Vec<f64>) -> f64 {
         error += (actual - expected).powi(2);
     }
     error
+}
+
+pub fn calculate_accuracy(testing_labels: Vec<Vec<f64>>, outputs: Vec<Vec<f64>>) -> f64 {
+    let mut classified_correctly = 0;
+    let mut classified_count = 0;
+    
+    for (expected, actual) in testing_labels.iter().zip(outputs.iter()) {
+        if expected.iter()
+        .enumerate()
+        .max_by(|(_, a), (_, b)| a.partial_cmp(b).unwrap_or(Ordering::Equal))
+        .map(|(index, _)| index) 
+        == 
+        actual.iter()
+        .enumerate()
+        .max_by(|(_, a), (_, b)| a.partial_cmp(b).unwrap_or(Ordering::Equal))
+        .map(|(index, _)| index) {
+            classified_correctly += 1;
+        }
+
+        classified_count += 1;
+    }
+    classified_correctly as f64 / classified_count as f64
 }

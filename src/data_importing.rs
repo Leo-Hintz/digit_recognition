@@ -1,7 +1,7 @@
 extern crate mnist;
 use mnist::*;
 
-pub fn read_data() -> (Vec<Vec<f64>>, Vec<Vec<f64>>, Vec<Vec<f64>>, Vec<Vec<f64>>) {
+pub fn read_mnist_data() -> (Vec<Vec<f64>>, Vec<Vec<f64>>, Vec<Vec<f64>>, Vec<Vec<f64>>) {
     let mnist = MnistBuilder::new()
         .label_format_digit()
         .training_set_length(50_000)
