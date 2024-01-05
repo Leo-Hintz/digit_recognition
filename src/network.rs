@@ -8,7 +8,7 @@ use rand::thread_rng;
 
 use crate::utils::{self, Matrix};
 
-use self::convolution::ConvolutionalNetwork;
+//use self::convolution::ConvolutionalNetwork;
 
 type Layer = Vec<Neuron>;
 const LEARNING_RATE: f64 = 0.00622;
@@ -113,17 +113,19 @@ impl Network {
             for j in 0..self.layers[i].len() {
 
                 let mut neuron_weight_gradients = vec![0.0; self.layers[i][j].weights.len()];
-                let mut bias_gradient = 0.0;
+                let mut neuron_bias_gradient = 0.0;
 
                 let right_derivatives = &right_layer_derivatives[j];
                 for k in 0..training_size {
-                    let (input_gradients, weight_gradients, tmp) = 
-                        gradient_descent(&mut self.layers[i][j], right_derivatives, &left_layer_outputs, k);
+                    let (input_gradients, 
+                        weight_gradients, 
+                        bias_gradient) = gradient_descent(&mut self.layers[i][j], right_derivatives, &left_layer_outputs, k);
                     
-                    bias_gradient = tmp;
+                    neuron_bias_gradient += bias_gradient;
                     for (weight_gradient, current_weight_gradient) in weight_gradients.iter().zip(neuron_weight_gradients.iter_mut()) {
                         *current_weight_gradient += weight_gradient;
-                    }                    
+                    }
+
                     for (input_gradient, current_input_gradient) in input_gradients.iter().zip(current_input_gradients.iter_mut()) {
                         current_input_gradient[k] += input_gradient;
                     }
@@ -133,19 +135,14 @@ impl Network {
                 let prev_bias_gradient = self.layers[i][j].bias_gradient;
                 let prev_weight_gradients = self.layers[i][j].weight_gradients.clone();
 
-                self.layers[i][j].previous_weights = self.layers[i][j].weights.clone();
-                self.layers[i][j].previous_bias = self.layers[i][j].bias;
-
                 self.layers[i][j].weight_gradients = neuron_weight_gradients.clone();
-                self.layers[i][j].bias_gradient = bias_gradient;
+                self.layers[i][j].bias_gradient = neuron_bias_gradient;
 
                 for k in 0..neuron_weight_gradients.len() {
-                    self.layers[i][j].previous_weights[k] = self.layers[i][j].weights[k];
                     self.layers[i][j].weights[k] -= LEARNING_RATE * (neuron_weight_gradients[k] + prev_weight_gradients[k] * MOMENTUM);
                 }
-                
-                self.layers[i][j].previous_bias = self.layers[i][j].bias;
-                self.layers[i][j].bias -= LEARNING_RATE * (bias_gradient + prev_bias_gradient * MOMENTUM);
+
+                self.layers[i][j].bias -= LEARNING_RATE * (neuron_bias_gradient + prev_bias_gradient * MOMENTUM);
             }
             //update previous derivatives
             right_layer_derivatives = current_input_gradients;
@@ -160,9 +157,7 @@ pub struct Neuron {
     bias: f64,
     outputs: Vec<f64>,
     weight_gradients: Vec<f64>,
-    bias_gradient: f64,
-    previous_weights: Vec<f64>,
-    previous_bias: f64,
+    bias_gradient: f64
 }
 
 impl Neuron {
@@ -172,9 +167,7 @@ impl Neuron {
             bias: 0.0,
             outputs: vec![],
             weight_gradients: vec![0.0; input_count],
-            bias_gradient: 0.0,
-            previous_weights: vec![1.0; input_count],
-            previous_bias: 0.0,
+            bias_gradient: 0.0
         }
     }
 
@@ -194,7 +187,6 @@ fn gradient_descent(neuron: &mut Neuron, right_derivatives: &Vec<f64>, left_laye
     
     let mut input_gradients = vec![0.0; neuron.weights.len()];
     let mut neuron_weight_gradients = vec![0.0; neuron.weights.len()];
-    let mut bias_gradient = 0.0;
 
     //calculate derivative for sigmoid function
     //Source: https://math.stackexchange.com/questions/78575/derivative-of-sigmoid-function-sigma-x-frac11e-x
@@ -204,9 +196,9 @@ fn gradient_descent(neuron: &mut Neuron, right_derivatives: &Vec<f64>, left_laye
     for (weight_gradient, prev_layer_output) in neuron_weight_gradients.iter_mut().zip(left_layer_outputs[sample_index].iter()) {
         *weight_gradient = prev_layer_output * sigmoid_derivative * right_derivatives[sample_index];
     }
-    bias_gradient -= sigmoid_derivative * right_derivatives[sample_index];
+    
+    let bias_gradient = sigmoid_derivative * right_derivatives[sample_index];
 
-    //let sigmoid_derivative = self.layers[i][j].outputs[k] * (1.0 - self.layers[i][j].outputs[k]);
     for (input_gradient, neuron_weight) in input_gradients.iter_mut().zip(neuron.weights.iter()) {
             *input_gradient = neuron_weight * sigmoid_derivative * right_derivatives[sample_index];
     }

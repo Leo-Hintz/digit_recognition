@@ -1,0 +1,10 @@
+/Users/leohintz/Documents/Rust/digit_recognition_old/target/release/deps/libfutures_task-08951c8831ef429d.rmeta: /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/lib.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/spawn.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/future_obj.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/noop_waker.rs
+
+/Users/leohintz/Documents/Rust/digit_recognition_old/target/release/deps/libfutures_task-08951c8831ef429d.rlib: /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/lib.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/spawn.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/future_obj.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/noop_waker.rs
+
+/Users/leohintz/Documents/Rust/digit_recognition_old/target/release/deps/futures_task-08951c8831ef429d.d: /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/lib.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/spawn.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/future_obj.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/noop_waker.rs
+
+/Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/lib.rs:
+/Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/spawn.rs:
+/Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/future_obj.rs:
+/Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-task-0.3.28/src/noop_waker.rs:

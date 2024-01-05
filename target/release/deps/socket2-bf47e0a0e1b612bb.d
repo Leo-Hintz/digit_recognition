@@ -1,0 +1,11 @@
+/Users/leohintz/Documents/Rust/digit_recognition_old/target/release/deps/libsocket2-bf47e0a0e1b612bb.rmeta: /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/lib.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sockaddr.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/socket.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sockref.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sys/unix.rs
+
+/Users/leohintz/Documents/Rust/digit_recognition_old/target/release/deps/libsocket2-bf47e0a0e1b612bb.rlib: /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/lib.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sockaddr.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/socket.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sockref.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sys/unix.rs
+
+/Users/leohintz/Documents/Rust/digit_recognition_old/target/release/deps/socket2-bf47e0a0e1b612bb.d: /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/lib.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sockaddr.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/socket.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sockref.rs /Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sys/unix.rs
+
+/Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/lib.rs:
+/Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sockaddr.rs:
+/Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/socket.rs:
+/Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sockref.rs:
+/Users/leohintz/.cargo/registry/src/index.crates.io-6f17d22bba15001f/socket2-0.4.9/src/sys/unix.rs:

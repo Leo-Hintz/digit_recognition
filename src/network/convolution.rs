@@ -86,8 +86,8 @@ impl PoolingFilter {
     pub fn max_pooling(&self, input: &Matrix<f64>) {
         let image_width = input.len();
         let image_height = input[0].len();
-        for i in 0..image_width / self.width {
-            for j in 0..image_height / self.height {
+        for _ in 0..image_width / self.width {
+            for _ in 0..image_height / self.height {
                 
             }
         }
